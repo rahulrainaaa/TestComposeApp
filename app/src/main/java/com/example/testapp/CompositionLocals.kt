@@ -2,6 +2,7 @@ package com.example.testapp
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.navigation.NavHostController
+import com.example.testapp.vm.EMICalculatorViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 
@@ -19,6 +20,10 @@ val Logger2ServiceLocal = compositionLocalOf<LoggerService> {
 
 val NavHostControllerLocal = compositionLocalOf<NavHostController> {
     error("Error::NavHostLocal")
+}
+
+val EMICalculatorViewModelLocal = compositionLocalOf<EMICalculatorViewModel> {
+    error("Error::EMICalculatorViewModel")
 }
 
 /**
@@ -46,7 +51,6 @@ sealed class Screen(private val tag: String) {
         }
     }
 }
-
 
 suspend fun CoroutineScope.mockedCall(ms: Long): Long {
     delay(ms)
